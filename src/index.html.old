@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weeklyrama</title>
+    <meta name="description" content="All your projects are belongs to one page">
+    <!-- <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon"> -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: auto;
+            padding: 5px;
+            font: 14px/18px -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Segoe WP, Helvetica Neue, Lucida Grande, Verdana, Tahoma, Arial, sans-serif!important;
+            color: #353B3F;
+            background: #FEFEFE!important;
+        }
+
+        .bProject {
+            padding: 2rem 1rem;
+            padding-bottom: 4vw;
+        }
+
+        .bProject__title {
+            padding: 0;
+            padding: 5px 10px;
+            font-weight: 800;
+            font-size: 3vw;
+            margin: 0;
+            line-height: 1.2;
+            margin-bottom: 1.2vw;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .bProject__content {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+
+        .bWeek {
+            background-color: #E3E3E3;
+            border-radius: 2px;
+            margin: 5px 7px;
+            padding: 5px;
+            width: 280px;
+            min-width: 280px;
+        }
+
+        .bWeek>header {
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1.25;
+            padding-bottom: 5px;
+            padding-top: 7px;
+            text-transform: uppercase;
+        }
+
+        .bWeek article {
+            border-radius: 2px;
+            margin-top: 5px;
+        }
+
+        .bWeek .card {
+            background-color: #FFF;
+            border-bottom: 1px solid #CCC;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* .bWeek .card:hover {
+            background-color: #F0F0F0;
+        } */
+
+        .detail {
+            font-size: 12px;
+            color: #939393;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .bbWeek--current {
+            transform: scale(1.125) translateY(-5px);
+            -webkit-box-shadow: 5px 5px 0 #353b3f;
+            box-shadow: 10px 10px 0 #353B3F;
+            margin: 10px 35px;
+            background: #F78487!important;
+        }
+
+        .bbWeek--overdue {
+            opacity: .25;
+            zoom: 1;
+            transition: opacity .7s ease;
+        }
+
+        .bbWeek--overdue:hover {
+            opacity: .88;
+            transition: none;
+        }
+
+        /* colors */
+
+        .bColors--FBE39A {
+            background: #FBE39A!important;
+        }
+
+        .bColors--F7878A {
+            background: #F7878A!important;
+        }
+
+        .bColors--C999C3 {
+            background: #C999C3!important;
+        }
+
+        .bColors--80B9CF {
+            background: #80B9CF!important;
+        }
+
+        .bColors--E3D3C3 {
+            background: #E3D3C3!important;
+        }
+
+        .bColors--C8DCC2 {
+            background: #C8DCC2!important;
+        }
+
+        .bColors--A58E8E {
+            background: #A58E8E!important;
+        }
+
+        .bColors--BFE5E3 {
+            background: #BFE5E3!important;
+        }
+
+        .bColors--E3D9EC {
+            background: #E3D9EC!important;
+        }
+
+        .bColors--F985BC {
+            background: #F985BC!important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bProject">
+        <header class="bProject__title">
+            Super sexy app project
+        </header>
+        <div class="bProject__content">
+            <section class="bWeek bColors--FBE39A bbWeek--overdue">
+                <header>I Неделя</header>
+                <article class="card">
+                    <header>Drag and Drop CSS</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Maybe something else ?</header>
+                    <div class="detail">1/2</div>
+                </article>
+            </section>
+            <section class="bWeek bColors--A58E8E bbWeek--overdue">
+                <header>II Неделя</header>
+                <article class="card">
+                    <header>Drag and Drop JS</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Subscriptions Quickstart</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Define a plan</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Create a customer</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Subscribe the customer to the plan</header>
+                    <div class="detail">1/2</div>
+                </article>
+            </section>
+            <section class="bWeek bColors--80B9CF bbWeek--overdue">
+                <header>III Неделя</header>
+                <article class="card">
+                    <header>Global HTML</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Global CSS</header>
+                    <div class="detail">1/2</div>
+                </article>
+            </section>
+            <section class="bWeek bbWeek--current">
+                <header>IV Неделя</header>
+                <article class="card">
+                    <header>Drag and Drop CSS</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Maybe something else ?</header>
+                    <div class="detail">1/2</div>
+                </article>
+            </section>
+            <section class="bWeek bColors--80B9CF">
+                <header>V Неделя</header>
+                <article class="card">
+                    <header>Drag and Drop JS</header>
+                    <div class="detail">1/2</div>
+                </article>
+            </section>
+            <section class="bWeek bColors--E3D3C3">
+                <header>VI Неделя</header>
+                <article class="card">
+                    <header>Global HTML</header>
+                    <div class="detail">1/2</div>
+                </article>
+                <article class="card">
+                    <header>Global CSS</header>
+                    <div class="detail">1/2</div>
+                </article>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

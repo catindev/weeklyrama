@@ -1,0 +1,34 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "weeklyrama",
+  "version": "0.0.1",
+  "description": "Woop",
+  "scripts": {
+    "start": "nodemon src"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "chunk-date-range": "^0.1.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "moment": "^2.22.0",
+    "mongoose": "^5.0.12",
+    "nodemon": "^1.12.1"
+  },
+  "engines": {
+    "node": "9.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/my-glitch-app"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
