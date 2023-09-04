@@ -1,11 +1,46 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const { format, startOfMonth, startOfWeek, endOfWeek, getWeeksInMonth, addWeeks, subDays } = require('date-fns');
-const { ru } = require('date-fns/locale');
+const {
+  format,
+  startOfMonth,
+  startOfWeek,
+  endOfWeek,
+  getWeeksInMonth,
+  addWeeks,
+  subDays,
+} = require("date-fns");
+const { ru, en } = require("date-fns/locale");
+
+const locale = en;
 
 const monthNames = [
-  'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
-  'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+  "Январь",
+  "Февраль",
+  "Март",
+  "Апрель",
+  "Май",
+  "Июнь",
+  "Июль",
+  "Август",
+  "Сентябрь",
+  "Октябрь",
+  "Ноябрь",
+  "Декабрь",
+];
+
+const monthNamesEN = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
 function validateDate(dateString) {
@@ -30,13 +65,13 @@ function validateDate(dateString) {
 }
 
 function formatDate(inputDate) {
-  const parsedDate = inputDate.split('.').reverse().join('-');
+  const parsedDate = inputDate.split(".").reverse().join("-");
   const date = new Date(parsedDate);
 
   const today = new Date();
   const currentWeekStart = startOfWeek(today, { weekStartsOn: 1 });
-  const monthName = monthNames[date.getMonth()];
-  const formattedToday = format(today, 'dd MMMM yyyy', { locale: ru });
+  const monthName = monthNamesEN[date.getMonth()];
+  const formattedToday = format(today, "dd MMMM yyyy", { locale });
 
   const weeksInMonth = getWeeksInMonth(date, { weekStartsOn: 1 });
   const weeks = [];
@@ -49,17 +84,24 @@ function formatDate(inputDate) {
 
     let weekStatus;
     if (weekEndDate < currentWeekStart) {
-      weekStatus = 'past';
-    } else if (weekStartDate <= currentWeekStart && weekEndDate >= currentWeekStart) {
-      weekStatus = 'current';
+      weekStatus = "past";
+    } else if (
+      weekStartDate <= currentWeekStart &&
+      weekEndDate >= currentWeekStart
+    ) {
+      weekStatus = "current";
     } else {
-      weekStatus = 'future';
+      weekStatus = "future";
     }
 
+  const areBothDatesInSameMonth = weekStartDate.getMonth() === weekEndDate.getMonth();
+
+  const mondayFormat = areBothDatesInSameMonth ? 'd' : 'd MMMM';    
+    
     weeks.push({
-      monday: format(weekStartDate, 'dd MMMM', { locale: ru }),
-      sunday: format(weekEndDate, 'dd MMMM', { locale: ru }),
-      status: weekStatus
+      monday: format(weekStartDate, mondayFormat, { locale }),
+      sunday: format(weekEndDate, "d MMMM", { locale }),
+      status: weekStatus,
     });
   }
 
@@ -70,9 +112,8 @@ function formatDate(inputDate) {
   };
 }
 
-
-app.get('/', (req, res) => {
-  const inputDate = req.query.date || format(new Date(), 'dd.MM.yyyy');
+app.get("/", (req, res) => {
+  const inputDate = req.query.date || format(new Date(), "dd.MM.yyyy");
   const validationResult = validateDate(inputDate);
 
   if (validationResult.error) {
