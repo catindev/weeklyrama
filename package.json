@@ -1,34 +1,30 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "weeklyrama",
-  "version": "0.0.1",
-  "description": "Woop",
+  "name": "glitch-hello-node",
+  "version": "0.1.0",
+  "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon src"
+    "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "^1.18.1",
-    "chunk-date-range": "^0.1.0",
-    "cookie-parser": "^1.4.3",
-    "cors": "^2.8.4",
-    "ejs": "^2.5.8",
-    "express": "^4.16.3",
-    "moment": "^2.22.0",
-    "mongoose": "^5.0.12",
-    "nodemon": "^1.12.1"
+    "fastify": "^4.15.0",
+    "handlebars": "^4.7.7",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^6.9.0",
+    "@fastify/view": "^7.4.1",
+    "express": "^4.18.2",
+    "date-fns": "^2.29.3",
+    "date-fns-tz": "^2.0.0"
   },
   "engines": {
-    "node": "9.x"
+    "node": "14.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/my-glitch-app"
+    "url": "https://glitch.com/edit/#!/glitch-hello-node"
   },
   "license": "MIT",
   "keywords": [
     "node",
-    "glitch",
-    "express"
+    "glitch"
   ]
 }
